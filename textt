@@ -42,10 +42,3 @@ lab 2
 1- create rds
 2- create elastic cache
 
-"public_ip": "3.88.51.139",
-
-endpoint": "terraform-20230417025525633300000001.cd0jubtblu45.us-east-1.rds.amazonaws.com:3306
-"configuration_endpoint": "cluster-memcached.c55tnj.cfg.use1.cache.amazonaws.com:11211"
-
-
-terraform show -json | jq '.values.root_module.resources[] | select(.address == "aws_instance.bastion")' | grep ip -i
