@@ -10,8 +10,9 @@ resource "aws_db_instance" "rds"{
  # availability_zone    
   vpc_security_group_ids= [aws_security_group.rds_sg.id]
   
-  username             =data.local_file.username_file.content
-  password             = data.local_file.pass_file.content
+  username             =data.local_file.username_file.content_base64
+  password             = data.local_file.pass_file.content_base64
+
  #parameter_group_name = "default.mysql5.7"
 
   skip_final_snapshot  = true          #if you don't need the final snapshot or if you want to save on storage costs.
