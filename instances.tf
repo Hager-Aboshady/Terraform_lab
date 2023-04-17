@@ -1,12 +1,12 @@
 resource "aws_instance" "bastion" {
-  ami                     = var.AMI_ID
-  instance_type           = var.INST_TYPE
-  subnet_id               =module.network_m.pub_sub_1
-  key_name                = aws_key_pair.key_pair.key_name                                                     
-  vpc_security_group_ids  =[aws_security_group.bastion_sg.id]
+  ami                         = var.AMI_ID
+  instance_type               = var.INST_TYPE
+  subnet_id                   = module.network_m.pub_sub_1
+  key_name                    = aws_key_pair.key_pair.key_name
+  vpc_security_group_ids      = [aws_security_group.bastion_sg.id]
   associate_public_ip_address = true
-  tags= {
-    Name= "${var.PUB_INST_NAME}_1"
+  tags = {
+    Name = "${var.PUB_INST_NAME}_1"
 
   }
   provisioner "local-exec" {
@@ -30,7 +30,7 @@ resource "aws_instance" "bastion" {
 #   instance_type           = var.INST_TYPE
 #   subnet_id               =module.network_m.pub_sub_3
 #   key_name                = aws_key_pair.key_pair.key_name                                                                                             #this is the name of pub key and it will be sent to aws 
-                                                     
+
 #   vpc_security_group_ids  =[aws_security_group.bastion_sg.id]
 #   associate_public_ip_address = true
 #   tags= {
